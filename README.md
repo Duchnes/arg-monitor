@@ -1,106 +1,76 @@
-# ARG Monitor – rozbudowany
+# ARG Monitor v3
 
-Automatyczny monitoring strony **haahaaaahaaaaahah.pl** z:
+Pełny monitoring **haahaaaahaaaaahah.pl** 24/7 (GitHub Actions).
 
-- wykrywaniem **każdej** zmiany (nawet 1 litera)
-- zapisem pełnych snapshotów HTML do folderu `archive/`
-- generowaniem **diffu** (co dokładnie się zmieniło)
-- ładnymi powiadomieniami na **Discord**
+## Co robi
 
-Działa 24/7 za darmo dzięki GitHub Actions (co 10 minut).
+- Sprawdza wszystkie znane podstrony
+- **Skanuje nowe** podstrony (bruteforce + linki z main)
+- Przy **jakiejkolwiek** zmianie tworzy nowy folder wersji
+- W folderze zapisuje:
+  - HTML każdej zmienionej strony
+  - **wszystkie media** (obrazy, wideo, pliki) z tej strony
+  - diff.txt (co się zmieniło)
+  - meta.json
+- Wysyła powiadomienie na Discord z diffem
 
----
-
-## Szybki start (5–7 minut)
-
-### 1. Stwórz repozytorium
-1. Wejdź na [github.com/new](https://github.com/new)
-2. Nazwa np. `arg-monitor`
-3. Ustaw na **Private** (zalecane)
-4. Kliknij **Create repository**
-
-### 2. Wrzuć pliki
-Skopiuj do repo te pliki:
-```
-.github/workflows/monitor.yml
-check.py
-README.md
-```
-
-Najłatwiej:
-- kliknij **uploading an existing file**
-- albo użyj gita lokalnie
-
-### 3. Discord Webhook
-1. Na Discordzie: Ustawienia serwera → **Integracje** → **Webhooki** → Nowy webhook
-2. Wybierz kanał i skopiuj **URL webhooka**
-3. W repo GitHub: **Settings → Secrets and variables → Actions → New repository secret**
-4. Name: `DISCORD_WEBHOOK`
-5. Value: wklej URL webhooka
-
-### 4. Uruchom pierwszy raz
-1. Zakładka **Actions**
-2. Wybierz workflow **ARG Monitor (rozbudowany)**
-3. **Run workflow** → Run workflow
-
-Po pierwszym uruchomieniu zapisze się stan początkowy (bez alarmu).
-
----
-
-## Co dostaniesz na Discordzie przy zmianie
+## Struktura archiwum
 
 ```
-ARG – wykryto 1 zmian(y)!
-`2026-10-12T22:30:00Z`
-
-• tura3 → https://haahaaaahaaaaahah.pl/tura3/
-  `a1b2c3d4e5…` → `f6g7h8i9j0…`
+archive/
+  2026-10-12_22-30-15/          ← jedna wersja (jeden update)
+    summary.json
+    tura3/
+      index.html
+      diff.txt
+      meta.json
+      media/
+        1.JPG
+        2.JPG
+        ...
+    zdjecia/
+      index.html
+      media/
+        ...
+  2026-10-13_01-05-00/
+    ...
 ```
 
-+ **embed** z diffem (fragment zmian w formacie diff).
+## Monitorowane strony (startowe)
 
----
+| Klucz | URL |
+|-------|-----|
+| main | https://haahaaaahaaaaahah.pl/ |
+| index | /index.html |
+| zdjecia | /zdjecia.html |
+| nagrania | /nagrania.html |
+| logowanie | /logowanie.html |
+| toniejejwina | /toniejejwina.html |
+| ferma | /ferma.html |
+| hgsupepmgkug | /hgsupepmgkug.html |
+| tura3 | /tura3/ |
+| 404 | /404.html |
+| szukajszczegolow | /szukajszczegolow/ |
 
-## Co jest w repozytorium
++ automatyczne odkrywanie nowych.
 
-| Plik / folder      | Opis                                      |
-|--------------------|-------------------------------------------|
-| `state.json`       | aktualne hashe wszystkich stron           |
-| `archive/`         | pełne kopie HTML (każda zmiana = nowy plik) |
-| `check.py`         | skrypt monitorujący                       |
-| `.github/workflows/monitor.yml` | harmonogram Actions              |
+## Setup (raz)
 
----
+1. Stwórz **prywatne** repo na GitHubie
+2. Wrzuć te pliki
+3. **Settings → Secrets and variables → Actions → New repository secret**
+   - Name: `DISCORD_WEBHOOK`
+   - Value: URL webhooka Discord
+4. Actions → **ARG Monitor v3** → Run workflow
+
+## Discord
+
+Przy zmianie dostaniesz:
+- listę zmienionych stron
+- folder w `archive/`
+- embed z **diffem** (co dokładnie się zmieniło)
+- liczbę pobranych mediów
 
 ## Częstotliwość
 
-Domyślnie **co 10 minut**.  
-Możesz zmienić w `monitor.yml`:
-
-```yaml
-- cron: '*/5 * * * *'   # co 5 minut (agresywniej)
-- cron: '*/15 * * * *'  # co 15 minut (oszczędniej)
-```
-
-GitHub Free ma limit minut – przy sprawdzaniu co 10 min spokojnie się mieścisz.
-
----
-
-## Ręczne odpalenie
-
-Actions → ARG Monitor → **Run workflow**
-
----
-
-## Rozszerzanie
-
-Chcesz dodać kolejne podstrony?  
-Edytuj listę `URLS` w `check.py`:
-
-```python
-URLS = [
-    ("main", "https://haahaaaahaaaaahah.pl/"),
-    ("nowa", "https://haahaaaahaaaaahah.pl/nowa-strona.html"),
-    ...
-]
-```
+Domyślnie co **10 minut**. Zmień w `.github/workflows/monitor.yml` jeśli chcesz inaczej.

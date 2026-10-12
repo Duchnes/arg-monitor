@@ -1,13 +1,12 @@
-name: ARG Monitor (rozbudowany)
+name: ARG Monitor v3
 
 on:
   schedule:
-    # Co 10 minut (GitHub free pozwala na ~14 uruchomień/godz.)
-    - cron: '*/10 * * * *'
-  workflow_dispatch:  # ręczne odpalenie z UI GitHuba
+    - cron: '*/10 * * * *'   # co 10 minut
+  workflow_dispatch:
 
 permissions:
-  contents: write   # żeby commitować archiwum i state
+  contents: write
 
 jobs:
   check:
@@ -26,7 +25,7 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: python check.py
 
-      - name: Commit archive & state (jeśli coś się zmieniło)
+      - name: Commit archive & state
         run: |
           git config user.name "ARG Monitor"
           git config user.email "arg-monitor@users.noreply.github.com"
@@ -34,6 +33,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "Brak zmian do commitowania"
           else
-            git commit -m "chore: aktualizacja archiwum ARG $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git commit -m "chore: ARG update $(date -u +%Y-%m-%dT%H:%M:%SZ)"
             git push
           fi
