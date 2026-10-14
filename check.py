@@ -38,7 +38,7 @@ KNOWN_PAGES = {
     "tura3":            "/tura3/",
     "404":              "/404.html",
     "szukajszczegolow": "/szukajszczegolow/",
-    "liszt": "/liszt.html/",
+    "liszt": "/liszt.html",
 }
 
 # Dodatkowe ścieżki do bruteforce'owania (wykrywanie nowych)
