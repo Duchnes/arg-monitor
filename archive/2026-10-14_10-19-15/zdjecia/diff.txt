@@ -1,0 +1,9 @@
+--- stary/zdjecia
++++ nowy/zdjecia
+@@ -68,5 +68,5 @@
+  <img src="tura2/4.JPG" alt="hgsup: tpnkdjdjwkng" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+  <img src="tura2/5.JPG" alt="'Jestem taki sam jak ty.'" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura3/1.JPG" alt="h=(przenośne urządzenie nadawczo-odbiorcze, które służy do dwukierunkowej komunikacji głosowej na krótkie odległości za pomocą fal radiowych).1" style="max-width: 90%; height: auto; margin-bottom: 20px;">
++ <img src="tura3/1.JPG" alt="haslo do maila=(przenośne urządzenie nadawczo-odbiorcze, które służy do dwukierunkowej komunikacji głosowej na krótkie odległości za pomocą fal radiowych).1" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+  <img src="tura3/2.JPG" alt="email=potwor" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+  <img src="tura3/3.JPG" alt="Byliście już w fermie?" style="max-width: 90%; height: auto; margin-bottom: 20px;">
