@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumenty</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        nav {
+            margin-top: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            border-bottom: 1px solid transparent;
+        }
+
+        nav a:hover {
+            border-bottom: 1px solid white;
+        }
+                .login-form {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;   
+            background: black;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-form h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-form label {
+            margin-bottom: 5px;
+            align-self: flex-start; 
+        }
+
+        .login-form input {
+            width: 250px;
+            padding: 10px;
+            margin-bottom: 15px; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #323232;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-form button:hover {
+            background-color: #0056b3;
+        }
+             h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+
+<nav>
+        <a href="index.html">Strona Główna</a>
+    </nav>
+    
+    <h1>Zaloguj się</h1>
+    
+    <form class="login-form" id="formularzLogowania">
+        <label for="login">Login:</label>
+        <input type="text" id="login" name="login" required>
+        
+        <label for="haslo">Hasło:</label>
+        <input type="password" id="haslo" name="haslo" required>
+        
+        <button type="submit">Zaloguj się</button>
+    </form>
+
+    <script>
+        document.getElementById('formularzLogowania').addEventListener('submit', function(event) {
+       
+            event.preventDefault();
+            
+   
+            const wpisanyLogin = document.getElementById('login').value;
+            const wpisaneHaslo = document.getElementById('haslo').value;
+            
+          
+            if (wpisanyLogin === "admin") {
+            
+                window.location.href = wpisaneHaslo + ".html";
+            } else {
+         
+                window.location.href = "404.html";
+            }
+        });
+    </script>
