@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-10-18T19:25:57Z",
+  "folder": "2026-10-18_19-25-57",
+  "changes": [
+    {
+      "key": "main",
+      "url": "https://haahaaaahaaaaahah.pl/",
+      "path": "/",
+      "old_hash": "8ce064413f8a5abce9796936eaaad15810a626e4ccaf3f5c85df856180436d1b",
+      "new_hash": "ac7e8012d12ee5c2cedc38a1fc03f15f3e48a5e53687588d8727128d30703a6d",
+      "size": 11846,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "index",
+      "url": "https://haahaaaahaaaaahah.pl/index.html",
+      "path": "/index.html",
+      "old_hash": "8ce064413f8a5abce9796936eaaad15810a626e4ccaf3f5c85df856180436d1b",
+      "new_hash": "3a3588cfdff83ca91212b7e4faca8c67cd4323d0836aa01d7b141e72981e6020",
+      "size": 11993,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "zdjecia",
+      "url": "https://haahaaaahaaaaahah.pl/zdjecia.html",
+      "path": "/zdjecia.html",
+      "old_hash": "5d1b4f6ee9e78e73844f391854a37d17b26548b57ff7c72b1f39b2eef56200a8",
+      "new_hash": "6915967b2564f9cf87493a904ee838066aa1031165d9bf39cef7535b142a097b",
+      "size": 11995,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "nagrania",
+      "url": "https://haahaaaahaaaaahah.pl/nagrania.html",
+      "path": "/nagrania.html",
+      "old_hash": "4cd2861f867b9b8578caa9ecdd9fbd9a147dba06409f56fbf69d545279e5f1c4",
+      "new_hash": "2fbc79b71a6de14e323f1b3fdd826e3ebc4b1f2dcf6dcde903a68dc7c35861ab",
+      "size": 11943,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "logowanie",
+      "url": "https://haahaaaahaaaaahah.pl/logowanie.html",
+      "path": "/logowanie.html",
+      "old_hash": "954fdcb4bb2a3b99480f072ab59361a90d5a6a8d26caa21dd563c7b3e9cfae48",
+      "new_hash": "2ae2005df9f665e95343d9172f7fc12410f5b027e6f8352c681e0b1dd6494daa",
+      "size": 12073,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "toniejejwina",
+      "url": "https://haahaaaahaaaaahah.pl/toniejejwina.html",
+      "path": "/toniejejwina.html",
+      "old_hash": "872ff5a0f7aeb358a38033f520106813e8173c3d4f6868a0fd28134060374889",
+      "new_hash": "5b012aa47517ac0ee8132cd9b5f189e56c0a53b6e45fc9e3f3ff8e457bdea098",
+      "size": 12076,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "ferma",
+      "url": "https://haahaaaahaaaaahah.pl/ferma.html",
+      "path": "/ferma.html",
+      "old_hash": "779904aadba3670af474701a310118731d9a439e6a187f2a1de5a5bd3362929a",
+      "new_hash": "c3eeba66d979b0e5f1f542ca71c5758f79ebbae0341c9e515dd3d64cac4da09e",
+      "size": 11958,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "hgsupepmgkug",
+      "url": "https://haahaaaahaaaaahah.pl/hgsupepmgkug.html",
+      "path": "/hgsupepmgkug.html",
+      "old_hash": "18cab427b4ae5a14069773a69f3350309d548c7f0e939568bf0394f84ddb69e1",
+      "new_hash": "d35b1caac61120035e074e406b90eb31cce32bfc37e1d49bf5e4c6498a4b45fb",
+      "size": 11965,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "tura3",
+      "url": "https://haahaaaahaaaaahah.pl/tura3/",
+      "path": "/tura3/",
+      "old_hash": "021db3aca0ea6dad104ffec9e3c39106897f28d7dd1393f62b8221843161c969",
+      "new_hash": "1b02369db4de795b7a4ee9a58860c410007991c825fde5e6a533c2369fda4997",
+      "size": 11972,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "404",
+      "url": "https://haahaaaahaaaaahah.pl/404.html",
+      "path": "/404.html",
+      "old_hash": "684a253de650f0077e8ac1a6e070c433b117e0569f5ccc3892371336f7e82d97",
+      "new_hash": "be1f9acbff226cbca802bda6a4e112eddf6fcc5e32c1ac10aae844153eb895c3",
+      "size": 11972,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "szukajszczegolow",
+      "url": "https://haahaaaahaaaaahah.pl/szukajszczegolow/",
+      "path": "/szukajszczegolow/",
+      "old_hash": "81a943a408deca075d5d857af1c3fc9acfad34ae2f122e54f471d48854047b39",
+      "new_hash": "b95419a57fceffa7e4e37b75804c44cbf1bac7f15fb0753b3658b79be6d7b396",
+      "size": 11999,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "liszt",
+      "url": "https://haahaaaahaaaaahah.pl/liszt.html",
+      "path": "/liszt.html",
+      "old_hash": "d81d8fa21367a58c35f8805b18aea1eec8a748c9a0a789902a735f85022d9872",
+      "new_hash": "125cc165452349dadc886aadfa7a39a8606e84928359ad0b13f2bc4936863f51",
+      "size": 12103,
+      "media_count": 0,
+      "media_files": []
+    }
+  ]
+}
