@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-10-19T19:37:08Z",
+  "folder": "2026-10-19_19-37-08",
+  "changes": [
+    {
+      "key": "main",
+      "url": "https://haahaaaahaaaaahah.pl/",
+      "path": "/",
+      "old_hash": "8ce064413f8a5abce9796936eaaad15810a626e4ccaf3f5c85df856180436d1b",
+      "new_hash": "9f439b6cd5a417f1afa741756b9612f66982bde6c593bdcec631f445f3dcb850",
+      "size": 2452,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "index",
+      "url": "https://haahaaaahaaaaahah.pl/index.html",
+      "path": "/index.html",
+      "old_hash": "8ce064413f8a5abce9796936eaaad15810a626e4ccaf3f5c85df856180436d1b",
+      "new_hash": "9f439b6cd5a417f1afa741756b9612f66982bde6c593bdcec631f445f3dcb850",
+      "size": 2452,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "zdjecia",
+      "url": "https://haahaaaahaaaaahah.pl/zdjecia.html",
+      "path": "/zdjecia.html",
+      "old_hash": "5d1b4f6ee9e78e73844f391854a37d17b26548b57ff7c72b1f39b2eef56200a8",
+      "new_hash": "380046643f4ebc2d3b4ebdde83154a2087c29ecf004965659a32430384e6c011",
+      "size": 5581,
+      "media_count": 30,
+      "media_files": [
+        "1.png",
+        "10.JPG",
+        "11.JPG",
+        "12.JPG",
+        "13.JPG",
+        "14.JPG",
+        "15.JPG",
+        "2.JPG",
+        "3.JPG",
+        "4.JPG",
+        "5.JPG",
+        "6.JPG",
+        "7.JPG",
+        "8.JPG",
+        "9.JPG",
+        "1_1.png",
+        "2_1.JPG",
+        "3_1.JPG",
+        "4_1.JPG",
+        "5_1.JPG",
+        "1.JPG",
+        "2_1_2.JPG",
+        "3_1_2.JPG",
+        "4_1_2.JPG",
+        "5.png",
+        "1_1.JPG",
+        "2_1_2_3.JPG",
+        "3_1_2_3.JPG",
+        "4.jpg",
+        "5.jpg"
+      ]
+    },
+    {
+      "key": "toniejejwina",
+      "url": "https://haahaaaahaaaaahah.pl/toniejejwina.html",
+      "path": "/toniejejwina.html",
+      "old_hash": "872ff5a0f7aeb358a38033f520106813e8173c3d4f6868a0fd28134060374889",
+      "new_hash": "1327cc23cd0a0ac42837d0ffc2311e8542e710c2f8845aa472969388e3f0e234",
+      "size": 1859,
+      "media_count": 4,
+      "media_files": [
+        "dok1.jpg",
+        "przesluchanie1CG.mp4",
+        "dok2.jpg",
+        "dok3.jpg"
+      ]
+    }
+  ]
+}
