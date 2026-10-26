@@ -1,0 +1,42 @@
+--- stary/hgsupepmgkug
++++ nowy/hgsupepmgkug
+@@ -1,11 +1,7 @@
+-
+ <!DOCTYPE html>
+-<html lang="pl">
++<html>
+ <head>
+- <meta charset="UTF-8">
+- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+- <title>Wielkie odkrycie</title>
++ <title>Przestań szukać.</title>
+  <style>
+- 
+  body {
+  background-color: black;
+@@ -13,19 +9,16 @@
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+- flex-direction: column; 
++ flex-direction: column;
+  align-items: center;
++ justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+- padding-top: 50px;
+  }
++ </style>
+ 
+- </style>
+ </head>
+- <body>
++<body>
++<p>Przestań szukać.</p>
+ 
+- <video controls width="80%">
+- <source src="szukajszczegolow/wbzńdn.mp4" alt="Droga rodzino! Wracam do ?????. Spotanie biznesowe poszło jak najbardziej po mojej myśli." type="video/mp4" style="margin-bottom: 20px;">
+- </video> 
+- </body>
+-</html>
+- +</body>
++</html>
