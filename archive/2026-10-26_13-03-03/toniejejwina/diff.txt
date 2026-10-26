@@ -1,0 +1,18 @@
+--- stary/toniejejwina
++++ nowy/toniejejwina
+@@ -48,12 +48,9 @@
+  <h1>Dokumenty</h1> 
+  
+- <img src="tura2/dok1.jpg" alt="haahaaaahaaaaahah" style="max-width: 60%; height: auto; margin-bottom: 20px;">
++ <img src="novumcapitulum/dok1.jpg" alt="haahaaaahaaaaahah" style="max-width: 60%; height: auto; margin-bottom: 20px;">
+ 
+- <video controls width="80%">
+- <source src="tura2/przesluchanie1CG.mp4" type="video/mp4" alt="SQFAŁTGCÓŻ ZŻDIQFGU ÓC PUCLWQ. ÓUA XKCŁDUA ÓUMQPX, MCBFŻ MQJQ SQ FTQFGA PUŁCDUA PQBA ÓUP EŻĘ. ÓCFCN LGXMCPŻ KATPŻ, JFGUA GÓCŁFXŁA LUH QKUCTC. FCNAŁ LGXMCPŻ FQZQFYZ Z LSTCZUA XSTQZCFGAÓUC. XZCBCŁDUA." style="margin-bottom: 20px;">
+- </video>
+- <img src="tura3/dok2.jpg" alt="haahaaaahaaaaahah" style="max-width: 60%; height: auto; margin-bottom: 20px;">
++ <img src="novumcapitulum/dok2.jpg" alt="haahaaaahaaaaahah" style="max-width: 60%; height: auto; margin-bottom: 20px;">
+ 
+- <img src="tura4/dok3.jpg" alt="haahaaaahaaaaahah" style="max-width: 60%; height: auto; margin-bottom: 20px;">
++ <img src="novumcapitulum/dok3.jpg" alt="haahaaaahaaaaahah" style="max-width: 60%; height: auto; margin-bottom: 20px;">
+ 
+  </body>

@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-10-26T13:03:03Z",
+  "folder": "2026-10-26_13-03-03",
+  "changes": [
+    {
+      "key": "main",
+      "url": "https://haahaaaahaaaaahah.pl/",
+      "path": "/",
+      "old_hash": "9f439b6cd5a417f1afa741756b9612f66982bde6c593bdcec631f445f3dcb850",
+      "new_hash": "5a618ec360e31561c0dc663d47df4fa8c03aea546e1c84740f7dcd43a893fafc",
+      "size": 2455,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "index",
+      "url": "https://haahaaaahaaaaahah.pl/index.html",
+      "path": "/index.html",
+      "old_hash": "9f439b6cd5a417f1afa741756b9612f66982bde6c593bdcec631f445f3dcb850",
+      "new_hash": "5a618ec360e31561c0dc663d47df4fa8c03aea546e1c84740f7dcd43a893fafc",
+      "size": 2455,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "zdjecia",
+      "url": "https://haahaaaahaaaaahah.pl/zdjecia.html",
+      "path": "/zdjecia.html",
+      "old_hash": "380046643f4ebc2d3b4ebdde83154a2087c29ecf004965659a32430384e6c011",
+      "new_hash": "caf2f01452ebd150dbfe7ae6aa1b1cb14b4f998a3337e7c020b6437c223b8534",
+      "size": 2672,
+      "media_count": 8,
+      "media_files": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg",
+        "5.jpg",
+        "6.jpg",
+        "7.jpg",
+        "8.jpg"
+      ]
+    },
+    {
+      "key": "nagrania",
+      "url": "https://haahaaaahaaaaahah.pl/nagrania.html",
+      "path": "/nagrania.html",
+      "old_hash": "4cd2861f867b9b8578caa9ecdd9fbd9a147dba06409f56fbf69d545279e5f1c4",
+      "new_hash": "b640085bac844be9f22b9e5f07eb70b1b43106c22d42842e8eb896d916f6f4f8",
+      "size": 1374,
+      "media_count": 2,
+      "media_files": [
+        "Video1.mp4",
+        "Video2.mp4"
+      ]
+    },
+    {
+      "key": "toniejejwina",
+      "url": "https://haahaaaahaaaaahah.pl/toniejejwina.html",
+      "path": "/toniejejwina.html",
+      "old_hash": "1327cc23cd0a0ac42837d0ffc2311e8542e710c2f8845aa472969388e3f0e234",
+      "new_hash": "b8ee119ce137722611d0741528895e7570688d57b564128e5f67b25ba0d68069",
+      "size": 1513,
+      "media_count": 3,
+      "media_files": [
+        "dok1.jpg",
+        "dok2.jpg",
+        "dok3.jpg"
+      ]
+    },
+    {
+      "key": "404",
+      "url": "https://haahaaaahaaaaahah.pl/404.html",
+      "path": "/404.html",
+      "old_hash": "684a253de650f0077e8ac1a6e070c433b117e0569f5ccc3892371336f7e82d97",
+      "new_hash": "59f4bc471d7027e9fd391a9c31fa6eaf2e67ae274e2f160ec412308aa1bfc86d",
+      "size": 506,
+      "media_count": 0,
+      "media_files": []
+    }
+  ]
+}

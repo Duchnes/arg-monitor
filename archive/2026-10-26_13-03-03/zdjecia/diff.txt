@@ -1,0 +1,49 @@
+--- stary/zdjecia
++++ nowy/zdjecia
+@@ -46,34 +46,16 @@
+  </nav>
+ 
+- <h1>Zdjęcia</h1> 
++ <h1>Coś się zmienia</h1> 
+ 
+- <img src="tura1/1.png" alt="Steganografia to nauka i praktyka ukrywania poufnych informacji wewnątrz innych, pozornie zwyczajnych danych lub obiektów tak, aby sam fakt istnienia wiadomości nie został zauważony." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/2.JPG" alt="Zdjęcie trawy przy opuszczonym budynku." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/3.JPG" alt="Ciemne zdjęcie ▯▯▯▯▯ w workach." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/4.JPG" alt="Zdjęcie ściany z podejrzanym w tle." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/5.JPG" alt="Ściana." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/6.JPG" alt="Dokąd idziesz?" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/7.JPG" alt="▯▯▯▯▯ - podejrzany uprowadzenia." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/8.JPG" alt="Rozmazane zdjęcie ▯▯▯▯▯▯. Widocznie zaniepokojony." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/9.JPG" alt="Opuszczony budynek" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/10.JPG" alt="▯▯▯▯▯ w worku w jedynm z budynków." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/11.JPG" alt="Gb avr wrfg pmłbjvrx - glyxb cbgjóe olłol j fgnavr gb mebovć." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/12.JPG" alt="▯▯▯▯▯ widocznie zmieszany - wygląda jakby pozował do zdjęcia. Lokalizacja nieznana." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/13.JPG" alt="Podejrzany ▯▯▯▯▯ mówiący coś do fotografującego. Widocznie zirytowany." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/14.JPG" alt="hahh aaa aah hh ah aaahhh ha ahh aa hh ah" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura1/15.JPG" alt="Podejrzany schylony wiąże buta." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura2/1.png" alt="Podejrzany po raz ostatni widziany w fermach 04.09.2026." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura2/2.JPG" alt="Zdjęcia ▯▯▯▯▯▯▯▯▯ mięsa." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura2/3.JPG" alt="Zdjęcia wykonano prawdopodobnie w rezydencji podejrzanego." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura2/4.JPG" alt="hgsup: tpnkdjdjwkng" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura2/5.JPG" alt="'Jestem taki sam jak ty.'" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura3/1.JPG" alt="h=(przenośne urządzenie nadawczo-odbiorcze, które służy do dwukierunkowej komunikacji głosowej na krótkie odległości za pomocą fal radiowych).1" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura3/2.JPG" alt="email=potwor" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura3/3.JPG" alt="Byliście już w fermie?" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura3/4.JPG" alt="Squaxmcłelg z Dlgólqzlg." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura3/5.png" alt="Powiedzcie szczerze? Spaliście wtedy?" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura4/1.JPG" alt="Potwór jest wśród nas." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura4/2.JPG" alt="Nie ufajcie mu, myślcie samemu." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura4/3.JPG" alt="znevn.ugzy" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura4/4.jpg" alt="'Dlaczego mnie nie widzicie, skoro jestem cały czas przy was?'" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="tura4/5.jpg" alt=".---.... .--.---- .--...-- .----.-. .----..- .---.-.. .--....- .--.-.-. ..-..... .--...-- .--.---- --...-.- -..--.-- ..-..... .--.---- ..-..... .---.--- .--.---- .--.-.-. .--.---. .--.-..- .--..-.- ..-..... .---.--- ..-..... .---.... .--.---- .--.--.. .---..-- .--...-- .--..-.-" style="max-width: 90%; hei+ <img src="novumcapitulum/1.jpg" alt="Zdjęcie ofiary znalezione w prywatnym archiwum podejrzanego." style="max-width: 90%; height: auto; margin-bottom: 20px;">
++ <img src="novumcapitulum/2.jpg" alt="Ofiara została porwana mając zaledwie ▯▯ lat." style="max-width: 90%; height: auto; margin-bottom: 20px;">
++ <img src="novumcapitulum/3.jpg" alt="PjnrooesazahpaiimC s k.oeraypadpdbi oid aednc ownm faai ayca osuaydz wonpab yzryor.łzgzm" style="max-width: 90%; height: auto; margin-bottom: 20px;">
++ <img src="novumcapitulum/4.jpg" alt="Podejrzany prawdopodobnie odtwarzał zdjęcia które znaleźliśmy w ▯▯▯▯▯▯" style="max-width: 90%; height: auto; margin-bottom: 20px;">
++ <img src="novumcapitulum/5.jpg" alt="01010000 01101111 01100100 01111010 01101001 01100101 01101101 01101001 01100001 00100000 01110111 01101001 01100101 11000101 10111100 01111001 00100000 01100011 01101001 11000101 10011011 01101110 01101001 01100101 11000101 10000100 00101110" style="max-width: 90%; height: auto; margin-bottom: 20px;">
++ <img src="novumcapitulum/6.jpg" alt="fśóilnścyśóy.sdxv" style="max-width: 90%; height: auto; margin-bottom: 20px;">
++ <img src="novumcapitulum/7.jpg" alt="Budynek był sprawdzany przez nas pare razy, ale nic prócz kartki nie znaleźliśmy." style="max-width: 90%; height: auto; margin-bottom: 20px;">
++ <img src="novumcapitulum/8.jpg" alt="Ucieczka" style="max-width: 90%; height: auto; margin-bottom: 20px;">
++
++ <!--Komunikat był puszczony. Kartka nie została zabrana. Teraz trochę czasu wam zajmie rozwiązanie zagadek.-->
++</body>
++</html>
