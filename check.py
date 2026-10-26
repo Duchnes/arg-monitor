@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-ARG Monitor v3 – pełna wersja
-- Wszystkie znane podstrony
+ARG Monitor v3 – pełna wersja (zaktualizowana)
+- Wszystkie znane podstrony (stare + nowe)
 - Skanowanie nowych podstron
+- Specjalne skanowanie całego katalogu /szukajszczegolow/
 - Przy zmianie: nowy folder z datą/godziną
 - W folderze: HTML + wszystkie media z danej podstrony
 - Diff + powiadomienie Discord
 """
-
 import hashlib
 import json
 import os
@@ -22,27 +22,33 @@ from difflib import unified_diff
 from html.parser import HTMLParser
 
 # ========== KONFIGURACJA ==========
-
 BASE = "https://haahaaaahaaaaahah.pl"
 
 # Wszystkie znane podstrony (klucz → ścieżka)
+# Zawiera poprzednie + nowe: gdziejestpotwor, tojegowina + fokus na szukajszczegolow
 KNOWN_PAGES = {
-    "main":             "/",
-    "index":            "/index.html",
-    "zdjecia":          "/zdjecia.html",
-    "nagrania":         "/nagrania.html",
-    "logowanie":        "/logowanie.html",
-    "toniejejwina":     "/toniejejwina.html",
-    "ferma":            "/ferma.html",
-    "hgsupepmgkug":     "/hgsupepmgkug.html",
-    "tura3":            "/tura3/",
-    "404":              "/404.html",
-    "szukajszczegolow": "/szukajszczegolow/",
-    "liszt": "/liszt.html",
+    # --- główne / aktualne ---
+    "main":                 "/",
+    "index":                "/index.html",
+    "zdjecia":              "/zdjecia.html",
+    "nagrania":             "/nagrania.html",
+    "toniejejwina":         "/toniejejwina.html",
+    "gdziejestpotwor":      "/gdziejestpotwor.html",
+    "tojegowina":           "/tojegowina.html",
+    "szukajszczegolow":     "/szukajszczegolow/",
+
+    # --- poprzednie (zostawione na wypadek powrotu) ---
+    "logowanie":            "/logowanie.html",
+    "ferma":                "/ferma.html",
+    "hgsupepmgkug":         "/hgsupepmgkug.html",
+    "tura3":                "/tura3/",
+    "404":                  "/404.html",
+    "liszt":                "/liszt.html",
 }
 
-# Dodatkowe ścieżki do bruteforce'owania (wykrywanie nowych)
+# Kandydaci do bruteforce'a (wykrywanie nowych stron)
 DISCOVERY_CANDIDATES = [
+    # klasyczne
     "/admin.html", "/login.html", "/panel.html", "/secret.html",
     "/haslo.html", "/mail.html", "/poczta.html", "/kontakt.html",
     "/o-nas.html", "/about.html", "/news.html", "/aktualnosci.html",
@@ -55,6 +61,43 @@ DISCOVERY_CANDIDATES = [
     "/update.html", "/nowe.html", "/new.html",
     "/test.html", "/dev.html", "/staging.html",
     "/robots.txt", "/sitemap.xml",
+
+    # nowe / powiązane z ARG
+    "/gdziejestpotwor.html",
+    "/tojegowina.html",
+    "/toniejejwina.html",
+    "/gdziejest.html",
+    "/potwor.html",
+    "/ofiara.html",
+    "/szukaj.html",
+    "/szczegoly.html",
+]
+
+# Specjalne kandydaty wewnątrz katalogu /szukajszczegolow/
+# (directory listing jest zablokowane – 403, więc bruteforujemy pliki)
+SZUKAJ_CANDIDATES = [
+    # już znane media
+    "poszukiwaniapotwora.mp4",
+    "ofiara.jpg",
+
+    # typowe rozszerzenia / nazwy
+    "index.html", "index.php", "default.html",
+    "ofiara.png", "ofiara.jpeg", "ofiara.webp", "ofiara.gif",
+    "poszukiwaniapotwora.webm", "poszukiwaniapotwora.avi",
+    "video.mp4", "film.mp4", "nagranie.mp4", "nagrania.mp4",
+    "zdjecie.jpg", "zdjecie.png", "foto.jpg", "photo.jpg",
+    "dokument.pdf", "list.pdf", "notatka.txt", "notatki.txt",
+    "wiadomosc.txt", "list.txt", "haslo.txt", "secret.txt",
+    "mapa.jpg", "mapa.png", "plan.jpg", "plan.png",
+    "audio.mp3", "nagranie.mp3", "dzwiek.mp3", "voice.mp3",
+    "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg",
+    "1.png", "2.png", "3.png",
+    "1.mp4", "2.mp4", "3.mp4",
+    "a.jpg", "b.jpg", "c.jpg",
+    "potwor.jpg", "potwor.png", "potwor.mp4",
+    "ofiara2.jpg", "ofiara2.png",
+    "szczegoly.html", "szczegoly.txt", "info.html", "info.txt",
+    "readme.txt", "README.md", ".htaccess",
 ]
 
 STATE_FILE = Path("state.json")
@@ -63,8 +106,8 @@ MAX_DIFF_CHARS = 3200
 USER_AGENT = "ARG-Monitor/3.0 (+github-actions)"
 REQUEST_TIMEOUT = 25
 
-# ========== HTML PARSER – zbiera media ==========
 
+# ========== HTML PARSER – zbiera media ==========
 class MediaCollector(HTMLParser):
     def __init__(self, base_url: str):
         super().__init__()
@@ -91,7 +134,7 @@ class MediaCollector(HTMLParser):
             href = attrs.get("href", "")
             if any(href.lower().endswith(ext) for ext in (
                 ".jpg", ".jpeg", ".png", ".gif", ".webp", ".mp4", ".webm",
-                ".mp3", ".wav", ".pdf", ".zip", ".svg"
+                ".mp3", ".wav", ".pdf", ".zip", ".svg", ".txt"
             )):
                 candidates = [href]
         elif tag == "link" and attrs.get("rel") in ("stylesheet", "icon", "shortcut icon"):
@@ -104,18 +147,21 @@ class MediaCollector(HTMLParser):
             if abs_url and abs_url.startswith("http"):
                 self.media.add(abs_url)
 
-# ========== POMOCNICZE ==========
 
+# ========== POMOCNICZE ==========
 def utcnow_str():
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
+
 def folder_ts():
     return datetime.now(timezone.utc).strftime("%Y-%m-%d_%H-%M-%S")
+
 
 def fetch(url: str) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
         return resp.read()
+
 
 def fetch_safe(url: str) -> tuple[bytes | None, int | None]:
     """Zwraca (content, status) lub (None, status/None) przy błędzie."""
@@ -128,14 +174,17 @@ def fetch_safe(url: str) -> tuple[bytes | None, int | None]:
     except Exception:
         return None, None
 
+
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
 
 def clean_text(html: bytes) -> str:
     text = html.decode("utf-8", errors="replace")
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text
+
 
 def make_diff(old: str, new: str, name: str) -> str:
     old_lines = old.splitlines(keepends=True)
@@ -146,16 +195,19 @@ def make_diff(old: str, new: str, name: str) -> str:
     )
     return "".join(diff)
 
+
 def truncate(s: str, limit: int = MAX_DIFF_CHARS) -> str:
     if len(s) <= limit:
         return s
     return s[:limit] + "\n… (ucięte)"
+
 
 def safe_filename(url: str) -> str:
     path = urllib.parse.urlparse(url).path
     name = Path(path).name or "file"
     name = re.sub(r"[^\w.\-]", "_", name)
     return name[:120]
+
 
 def download_media(urls: set[str], dest_dir: Path) -> list[str]:
     """Pobiera media do dest_dir. Zwraca listę zapisanych plików."""
@@ -175,11 +227,12 @@ def download_media(urls: set[str], dest_dir: Path) -> list[str]:
                 out = dest_dir / f"{stem}_{counter}{out.suffix}"
                 counter += 1
             out.write_bytes(data)
-            saved.append(str(out.relative_to(dest_dir.parent.parent)) if False else out.name)
+            saved.append(out.name)
             print(f"      media: {fname} ({len(data)} B)")
         except Exception as e:
             print(f"      media FAIL {url}: {e}")
     return saved
+
 
 def send_discord(content: str, embeds: list | None = None):
     webhook = os.environ.get("DISCORD_WEBHOOK")
@@ -201,16 +254,18 @@ def send_discord(content: str, embeds: list | None = None):
     except Exception as e:
         print(f"Discord błąd: {e}")
 
+
 def load_state() -> dict:
     if STATE_FILE.exists():
         return json.loads(STATE_FILE.read_text(encoding="utf-8"))
-    return {"pages": {}, "discovered": []}
+    return {"pages": {}, "discovered": [], "szukaj_files": []}
+
 
 def save_state(state: dict):
     STATE_FILE.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
 
-# ========== ODKRYWANIE NOWYCH STRON ==========
 
+# ========== ODKRYWANIE NOWYCH STRON ==========
 def discover_new_pages(state: dict) -> list[tuple[str, str]]:
     """Sprawdza listę kandydatów + linki z main. Zwraca listę (key, path) nowych."""
     found = []
@@ -230,34 +285,81 @@ def discover_new_pages(state: dict) -> list[tuple[str, str]]:
             already.add(path)
             time.sleep(0.4)
 
-    # 2) wyciągnij linki .html z głównej strony
-    try:
-        main_data, _ = fetch_safe(BASE + "/")
-        if main_data:
+    # 2) wyciągnij linki .html z głównej strony + innych znanych stron
+    pages_to_scan = ["/", "/zdjecia.html", "/nagrania.html", "/toniejejwina.html",
+                     "/gdziejestpotwor.html", "/tojegowina.html"]
+    for scan_path in pages_to_scan:
+        try:
+            main_data, _ = fetch_safe(BASE + scan_path)
+            if not main_data:
+                continue
             text = main_data.decode("utf-8", errors="replace")
             links = re.findall(r'href=["\']([^"\']+\.html)["\']', text, re.I)
-            for link in links:
+            # też src do plików w szukajszczegolow
+            media_links = re.findall(
+                r'(?:src|href)=["\']([^"\']*szukajszczegolow/[^"\']+)["\']',
+                text, re.I
+            )
+            for link in links + media_links:
                 full = urllib.parse.urljoin(BASE + "/", link)
                 path = urllib.parse.urlparse(full).path
                 if not path.startswith("/"):
                     path = "/" + path
                 if path in known_paths or path in already:
                     continue
+                # dla plików media nie dodajemy jako "strony", tylko logujemy
+                if any(path.lower().endswith(ext) for ext in (
+                    ".jpg", ".jpeg", ".png", ".gif", ".webp", ".mp4", ".webm",
+                    ".mp3", ".wav", ".pdf", ".zip"
+                )):
+                    print(f"[MEDIA LINK] {BASE + path}")
+                    already.add(path)  # żeby nie sprawdzać w kółko
+                    continue
                 data, status = fetch_safe(BASE + path)
                 if status == 200 and data:
                     key = path.strip("/").replace("/", "_").replace(".html", "")
-                    print(f"[NEW PAGE] Z linku: {BASE + path}")
+                    print(f"[NEW PAGE] Z linku ({scan_path}): {BASE + path}")
                     found.append((key, path))
                     already.add(path)
                     time.sleep(0.3)
-    except Exception as e:
-        print(f"Discovery linków: {e}")
+        except Exception as e:
+            print(f"Discovery linków ({scan_path}): {e}")
 
     state["discovered"] = list(already)
     return found
 
-# ========== GŁÓWNA LOGIKA ==========
 
+def discover_szukajszczegolow(state: dict) -> list[tuple[str, str]]:
+    """
+    Bruteforce plików w katalogu /szukajszczegolow/.
+    Directory listing zwraca 403, więc próbujemy konkretne nazwy.
+    Zwraca listę (key, path) nowo znalezionych zasobów.
+    """
+    found = []
+    already = set(state.get("szukaj_files", []))
+    known_paths = set(KNOWN_PAGES.values())
+
+    print("=== Skanowanie katalogu /szukajszczegolow/ ===")
+    for name in SZUKAJ_CANDIDATES:
+        path = f"/szukajszczegolow/{name}"
+        if path in already or path in known_paths:
+            continue
+        url = BASE + path
+        data, status = fetch_safe(url)
+        if status == 200 and data and len(data) > 20:
+            key = "szukaj_" + name.replace(".", "_").replace("/", "_")
+            print(f"[SZUKAJ] Znaleziono: {url} ({len(data)} B, status={status})")
+            found.append((key, path))
+            already.add(path)
+            time.sleep(0.35)
+        elif status and status not in (403, 404):
+            print(f"[SZUKAJ] {path} → status {status}")
+
+    state["szukaj_files"] = list(already)
+    return found
+
+
+# ========== GŁÓWNA LOGIKA ==========
 def main():
     ARCHIVE_DIR.mkdir(exist_ok=True)
     state = load_state()
@@ -265,6 +367,8 @@ def main():
         state["pages"] = {}
     if "discovered" not in state:
         state["discovered"] = []
+    if "szukaj_files" not in state:
+        state["szukaj_files"] = []
 
     # --- Odkrywanie nowych podstron ---
     print("=== Skanowanie nowych podstron ===")
@@ -272,12 +376,18 @@ def main():
     for key, path in new_pages:
         KNOWN_PAGES[key] = path
 
+    # --- Specjalne skanowanie /szukajszczegolow/ ---
+    szukaj_new = discover_szukajszczegolow(state)
+    for key, path in szukaj_new:
+        KNOWN_PAGES[key] = path
+        new_pages.append((key, path))
+
     # --- Sprawdzanie wszystkich stron ---
     print("\n=== Sprawdzanie stron ===")
     changes = []  # lista zmian w tej turze
     errors = []
 
-    for key, path in KNOWN_PAGES.items():
+    for key, path in sorted(KNOWN_PAGES.items()):
         url = BASE + path
         try:
             raw, status = fetch_safe(url)
@@ -298,6 +408,7 @@ def main():
                     "size": len(raw),
                     "checked_at": utcnow_str(),
                     "path": path,
+                    "text_preview": text[:5000],
                 }
             elif old_hash != h:
                 print(f"[CHG]  {key}: {old_hash[:10]}… → {h[:10]}…")
@@ -318,7 +429,7 @@ def main():
                     "size": len(raw),
                     "checked_at": utcnow_str(),
                     "path": path,
-                    "text_preview": text[:5000],  # do diffa przy następnej zmianie
+                    "text_preview": text[:5000],
                 }
             else:
                 print(f"[OK]   {key}")
@@ -345,7 +456,6 @@ def main():
             "folder": ts,
             "changes": [],
         }
-
         embeds = []
         discord_lines = [
             f"**ARG – wykryto {len(changes)} zmian(y)!**",
@@ -358,27 +468,45 @@ def main():
             page_dir = version_dir / c["key"]
             page_dir.mkdir(exist_ok=True)
 
-            # 1) zapisz HTML
-            html_file = page_dir / "index.html"
-            html_file.write_bytes(c["raw"])
-            print(f"  [{c['key']}] HTML zapisany")
+            # 1) zapisz HTML / plik
+            # jeśli to media (nie HTML), zapisz pod oryginalną nazwą
+            if any(c["path"].lower().endswith(ext) for ext in (
+                ".mp4", ".webm", ".jpg", ".jpeg", ".png", ".gif", ".webp",
+                ".mp3", ".wav", ".pdf", ".zip", ".txt"
+            )):
+                fname = safe_filename(c["url"])
+                (page_dir / fname).write_bytes(c["raw"])
+                print(f"  [{c['key']}] plik zapisany: {fname}")
+            else:
+                html_file = page_dir / "index.html"
+                html_file.write_bytes(c["raw"])
+                print(f"  [{c['key']}] HTML zapisany")
 
-            # 2) zbierz i pobierz media
-            parser = MediaCollector(c["url"])
-            try:
-                parser.feed(c["raw"].decode("utf-8", errors="replace"))
-            except Exception:
-                pass
-            media_dir = page_dir / "media"
-            saved_media = download_media(parser.media, media_dir)
-            print(f"  [{c['key']}] media: {len(saved_media)} plików")
+            # 2) zbierz i pobierz media (tylko dla HTML)
+            saved_media = []
+            if c["path"].endswith(".html") or c["path"].endswith("/"):
+                parser = MediaCollector(c["url"])
+                try:
+                    parser.feed(c["raw"].decode("utf-8", errors="replace"))
+                except Exception:
+                    pass
+                media_dir = page_dir / "media"
+                saved_media = download_media(parser.media, media_dir)
+                print(f"  [{c['key']}] media: {len(saved_media)} plików")
 
             # 3) diff
             old_text = c.get("old_text") or ""
             if not old_text:
-                # spróbuj z poprzedniego stanu
                 old_text = state["pages"].get(c["key"], {}).get("text_preview", "")
-            diff_text = make_diff(old_text, c["text"], c["key"]) if old_text else "(pierwsza zapisana zmiana – brak poprzedniej treści do diffa)"
+            # dla plików binarnych diff tekstowy nie ma sensu
+            if any(c["path"].lower().endswith(ext) for ext in (
+                ".mp4", ".webm", ".jpg", ".jpeg", ".png", ".gif", ".webp",
+                ".mp3", ".wav", ".pdf", ".zip"
+            )):
+                diff_text = f"(plik binarny – rozmiar: {c['size']} B, hash: {c['new_hash'][:16]}…)"
+            else:
+                diff_text = make_diff(old_text, c["text"], c["key"]) if old_text else "(pierwsza zapisana zmiana – brak poprzedniej treści do diffa)"
+
             diff_file = page_dir / "diff.txt"
             diff_file.write_text(diff_text, encoding="utf-8")
 
@@ -393,12 +521,15 @@ def main():
                 "media_count": len(saved_media),
                 "media_files": saved_media,
             }
-            (page_dir / "meta.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
-
+            (page_dir / "meta.json").write_text(
+                json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+            )
             summary["changes"].append(meta)
 
             discord_lines.append(f"• **{c['key']}** → `{c['url']}`")
-            discord_lines.append(f"  `{c['old_hash'][:10]}…` → `{c['new_hash'][:10]}…` · media: {len(saved_media)}")
+            discord_lines.append(
+                f"  `{c['old_hash'][:10]}…` → `{c['new_hash'][:10]}…` · media: {len(saved_media)}"
+            )
 
             embeds.append({
                 "title": f"Zmiana: {c['key']}",
@@ -416,7 +547,7 @@ def main():
         # jeśli odkryto nowe strony – dopisz do discorda
         if new_pages:
             discord_lines.append("")
-            discord_lines.append("**Nowe podstrony:**")
+            discord_lines.append("**Nowe podstrony / pliki:**")
             for key, path in new_pages:
                 discord_lines.append(f"• `{BASE + path}`")
 
@@ -425,7 +556,7 @@ def main():
     else:
         print("\nBrak zmian w treści stron.")
         if new_pages:
-            lines = ["**ARG – odkryto nowe podstrony!**", f"`{utcnow_str()}`", ""]
+            lines = ["**ARG – odkryto nowe podstrony / pliki!**", f"`{utcnow_str()}`", ""]
             for key, path in new_pages:
                 lines.append(f"• `{BASE + path}`")
             send_discord("\n".join(lines))
@@ -435,6 +566,7 @@ def main():
 
     save_state(state)
     print("\nGotowe.")
+
 
 if __name__ == "__main__":
     main()
