@@ -1,0 +1,183 @@
+--- stary/logowanie
++++ nowy/logowanie
+@@ -1,123 +1,58 @@
+-<!DOCTYPE html>
+-<html lang="pl">
+-<head>
+- <meta charset="UTF-8">
+- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+- <title>Dokumenty</title>
+- <style>
+- body {
+- background-color: black;
+- color: white;
+- font-family: 'Times New Roman', Times, serif;
+- display: flex;
+- flex-direction: column;
+- align-items: center;
+- min-height: 100vh;
+- margin: 0;
+- padding-top: 50px;
+- }
+-
+- h1 {
+- font-size: 2.5rem;
+- margin-bottom: 30px;
+- }
+-
+- nav {
+- margin-top: 40px;
+- }
+-
+- nav a {
+- color: white;
+- text-decoration: none;
+- font-size: 1.2rem;
+- margin: 0 15px;
+- border-bottom: 1px solid transparent;
+- }
+-
+- nav a:hover {
+- border-bottom: 1px solid white;
+- }
+- .login-form {
+- display: flex;
+- flex-direction: column; 
+- align-items: center; 
+- background: black;
+- padding: 30px;
+- border-radius: 8px;
+- box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+- }
+-
+- .login-form h2 {
+- margin-bottom: 20px;
+- }
+-
+- .login-form label {
+- margin-bottom: 5px;
+- align-self: flex-start; 
+- }
+-
+- .login-form input {
+- width: 250px;
+- padding: 10px;
+- margin-bottom: 15px; 
+- border: 1px solid #ccc;
+- border-radius: 4px;
+- }
+- .login-form button {
+- width: 100%;
+- padding: 10px;
+- background-color: #323232;
+- color: white;
+- border: none;
+- border-radius: 4px;
+- cursor: pointer;
+- font-size: 16px;
+- }
+-
+- .login-form button:hover {
+- background-color: #0056b3;
+- }
+- h1 {
+- font-size: 2.5rem;
+- margin-bottom: 30px;
+- }
+- </style>
+-</head>
+-<body>
+-
+-
+-<nav>
+- <a href="index.html">Strona Główna</a>
+- </nav>
+- 
+- <h1>Zaloguj się</h1>
+- 
+- <form class="login-form" id="formularzLogowania">
+- <label for="login">Login:</label>
+- <input type="text" id="login" name="login" required>
+- 
+- <label for="haslo">Hasło:</label>
+- <input type="password" id="haslo" name="haslo" required>
+- 
+- <button type="submit">Zaloguj się</button>
+- </form>
+-
+- <script>
+- document.getElementById('formularzLogowania').addEventListener('submit', function(event) {
+- 
+- event.preventDefault();
+- 
+- 
+- const wpisanyLogin = document.getElementById('login').value;
+- const wpisaneHaslo = document.getElementById('haslo').value;
+- 
+- 
+- if (wpisanyLogin === "admin") {
+- 
+- window.location.href = wpisaneHaslo + ".html";
+- } else {
+- 
+- window.location.href = "404.html";
+- }
+- });
+- </script>+<!DOCTYPE html>
++<html>
++<head>
++ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
++ <meta http-equiv="X-UA-Compatible" content="IE=edge">
++ <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
++ <title>Bot Verification</title>
++ <script>
++ function onSubmit() {
++ document.getElementById('lsrecaptcha-form').submit();
++ }
++
++ var onloadCallback = function() {
++ var cont = grecaptcha.render('recaptchadiv', {
++ 'sitekey': '6LewU34UAAAAAHvXqFOcQlm8z1MP1xpGAZCYEeZY',
++ 'callback': onSubmit,
++ 'size': 'invisible'
++ });
++ grecaptcha.execute(cont);
++ };
++ </script>
++ <style>
++ body {
++ height: 100%;
++ }
++ .panel {
++ padding: 30px;
++ max-width: 425px;
++ margin: 10% auto;
++ box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
++ }
++ .title {
++ font-size: 1.5em;
++ font-weight: 100;
++ margin-top: 10px;
++ text-align: center;
++ }
++ .recaptcha-center {
++ margin-top: 35px;
++ margin-bottom: 20px;
++ margin-left: 13%;
++ margin-right: 13%;
++ display: block;
++ }
++ </style>
++</head>
++<body>
++ <div class="panel">
++ <h3 class="title">Verifying that you are not a robot...</h3>
++ <form id="lsrecaptcha-form" method="POST" action="/.lsrecap/recaptcha?">
++ <div id="recaptchadiv" class="recaptcha-center"></div>
++ </form>
++ </div>
++ <script src="https://www.recaptcha.net/recaptcha/api.js?onload=onloadCallback&render=explicit"
++ async defer>
++ </script>
++</body>
++</html>
