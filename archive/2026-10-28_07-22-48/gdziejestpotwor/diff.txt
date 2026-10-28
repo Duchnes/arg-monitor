@@ -1,0 +1,13 @@
+--- stary/gdziejestpotwor
++++ nowy/gdziejestpotwor
+@@ -21,8 +21,6 @@
+  </style>
+ </head>
+- <body>
++<body>
+  <!--Ta strona z czasem będzie się zmieniać. Zapiszcie ją.-->
+- <video controls width="80%">
+- <source src="szukajszczegolow/poszukiwaniapotwora.mp4" alt="Droga rodzino! Niestety muszę się oddalić na pewien czas. Jestem podejrzewany o rzeczy których nie zrobiłem. Wrócę za jakiś czas." type="video/mp4" style="margin-bottom: 20px;">
+- </video> 
++ <img src="szukajszczegolow/obraz.JPG" alt="Pellicula clavem continet." style="max-width: 80%; margin-top: 30px;">
+ </body>

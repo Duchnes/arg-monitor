@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-28T07:22:48Z",
+  "folder": "2026-10-28_07-22-48",
+  "changes": [
+    {
+      "key": "404",
+      "url": "https://haahaaaahaaaaahah.pl/404.html",
+      "path": "/404.html",
+      "old_hash": "59f4bc471d7027e9fd391a9c31fa6eaf2e67ae274e2f160ec412308aa1bfc86d",
+      "new_hash": "388ffea9b3b88470f4236d66d28e07be7a8b28c7bf128d46c4122ff2a3519e17",
+      "size": 595,
+      "media_count": 0,
+      "media_files": []
+    },
+    {
+      "key": "gdziejestpotwor",
+      "url": "https://haahaaaahaaaaahah.pl/gdziejestpotwor.html",
+      "path": "/gdziejestpotwor.html",
+      "old_hash": "e37874324954d94f8645448865cc82a5ea7fea9b69414c9d4c55424db1d44227",
+      "new_hash": "a6bc2727db1a3d1cf1967e6be1bbc2ddd9bdb4dbb19d070342265f8b1a0e8dc8",
+      "size": 774,
+      "media_count": 1,
+      "media_files": [
+        "obraz.JPG"
+      ]
+    }
+  ]
+}
