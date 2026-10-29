@@ -22,6 +22,7 @@ from html.parser import HTMLParser
 BASE = "https://haahaaaahaaaaahah.pl"
 
 # Tylko znane podstrony / pliki – bez bruteforce'a i discovery
+# Uwaga: pierwsze INIT nowej strony NIE wysyła webhooka (tylko prawdziwa zmiana hasha)
 KNOWN_PAGES = {
     # --- główne / aktualne ---
     "main":                 "/",
@@ -31,10 +32,34 @@ KNOWN_PAGES = {
     "toniejejwina":         "/toniejejwina.html",
     "gdziejestpotwor":      "/gdziejestpotwor.html",
     "tojegowina":           "/tojegowina.html",
+    "tuniemazadnychwojen":  "/tuniemazadnychwojen.html",
+
+    # --- logowanie / formularze ---
+    "login_php":            "/login.php",
+    "imie_php":             "/imie.php",
+    "dobrywybor":           "/dobrywybor/",
+
+    # --- dane ---
+    "ofiary_json":          "/ofiary.json",
 
     # --- znane media z /szukajszczegolow/ ---
     "szukaj_poszukiwaniapotwora_mp4": "/szukajszczegolow/poszukiwaniapotwora.mp4",
     "szukaj_ofiara_jpg":              "/szukajszczegolow/ofiara.jpg",
+
+    # --- novumcapitulum (zdjęcia + wideo + dokumenty) ---
+    "novum_1":       "/novumcapitulum/1.jpg",
+    "novum_2":       "/novumcapitulum/2.jpg",
+    "novum_3":       "/novumcapitulum/3.jpg",
+    "novum_4":       "/novumcapitulum/4.jpg",
+    "novum_5":       "/novumcapitulum/5.jpg",
+    "novum_6":       "/novumcapitulum/6.jpg",
+    "novum_7":       "/novumcapitulum/7.jpg",
+    "novum_8":       "/novumcapitulum/8.jpg",
+    "novum_video1":  "/novumcapitulum/Video1.mp4",
+    "novum_video2":  "/novumcapitulum/Video2.mp4",
+    "novum_dok1":    "/novumcapitulum/dok1.jpg",
+    "novum_dok2":    "/novumcapitulum/dok2.jpg",
+    "novum_dok3":    "/novumcapitulum/dok3.jpg",
 
     # --- poprzednie (zostawione na wypadek powrotu) ---
     "logowanie":            "/logowanie.html",
@@ -303,7 +328,7 @@ def main():
             page_dir.mkdir(exist_ok=True)
 
             # 1) zapisz HTML / plik
-            if is_binary_path(c["path"]) or c["path"].lower().endswith(".txt"):
+            if is_binary_path(c["path"]) or c["path"].lower().endswith((".txt", ".json", ".php")):
                 fname = safe_filename(c["url"])
                 (page_dir / fname).write_bytes(c["raw"])
                 print(f"  [{c['key']}] plik zapisany: {fname}")
