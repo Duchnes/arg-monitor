@@ -1,0 +1,10 @@
+--- stary/ofiary_json
++++ nowy/ofiary_json
+@@ -58,4 +58,6 @@
+  { "imie": "Diana", "nazwisko": "Mróz", "wiek": 18, "miasto": "Wrocław" },
+  { "imie": "Eliza", "nazwisko": "Kaczmarek", "wiek": 21, "miasto": "Racibórz" },
+- { "imie": "Florentyna", "nazwisko": "Pawelec", "wiek": 16, "miasto": "Poznań" }
++ { "imie": "Florentyna", "nazwisko": "Pawelec", "wiek": 16, "miasto": "Poznań" },
++ { "imie": "Wiktoria", "nazwisko": "▯▯▯▯▯▯▯▯▯▯▯▯", "wiek": "▯▯", "miasto": "Zielona Góra" }
++
+ ]

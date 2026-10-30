@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-10-30T11:42:36Z",
+  "folder": "2026-10-30_11-42-36",
+  "changes": [
+    {
+      "key": "index",
+      "url": "https://haahaaaahaaaaahah.pl/index.html",
+      "path": "/index.html",
+      "old_hash": "5a618ec360e31561c0dc663d47df4fa8c03aea546e1c84740f7dcd43a893fafc",
+      "new_hash": "c9fe79b5e1b54e3899406ba9ffb8e0cfc4b243b36b3276ac245ee79abfe611b4",
+      "size": 2674,
+      "media_count": 1,
+      "media_files": [
+        "jegoimie.JPG"
+      ]
+    },
+    {
+      "key": "main",
+      "url": "https://haahaaaahaaaaahah.pl/",
+      "path": "/",
+      "old_hash": "5a618ec360e31561c0dc663d47df4fa8c03aea546e1c84740f7dcd43a893fafc",
+      "new_hash": "c9fe79b5e1b54e3899406ba9ffb8e0cfc4b243b36b3276ac245ee79abfe611b4",
+      "size": 2674,
+      "media_count": 1,
+      "media_files": [
+        "jegoimie.JPG"
+      ]
+    },
+    {
+      "key": "ofiary_json",
+      "url": "https://haahaaaahaaaaahah.pl/ofiary.json",
+      "path": "/ofiary.json",
+      "old_hash": "27a43b0e75228663624955146c676569311138b79ac0f571f081a37e182d1dd5",
+      "new_hash": "e47d53a538469715db62f5a78e30107ec3b82137cad8de0eb2836cb8f9b25fb2",
+      "size": 5065,
+      "media_count": 0,
+      "media_files": []
+    }
+  ]
+}

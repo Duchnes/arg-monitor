@@ -1,0 +1,16 @@
+--- stary/main
++++ nowy/main
+@@ -22,4 +22,5 @@
+  margin-bottom: 40px;
+  letter-spacing: 2px;
++ margin-top: 30px;
+  }
+ 
+@@ -61,4 +62,7 @@
+  <a href="toniejejwina.html">Dokumenty</a>
+  </nav>
++
++ <img src="jegoimie.JPG" alt="Nie ufajcie mu, on was oszuka." style="max-width: 90%; height: auto; margin-top: 40px;">
++ <p style="margin: 40px;">Jego imie to ▯▯▯▯▯</p>
+  <script>
+  const targetDate = new Date(2026, 9, 31, 16, 0, 0).getTime();

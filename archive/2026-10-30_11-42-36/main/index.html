@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona Główna</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #timer {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            margin-top: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin: 0 20px;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s;
+        }
+
+        nav a:hover {
+            border-bottom: 1px solid white;
+            
+        }
+
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-direction: column; 
+        text-align: center; 
+        gap: 15px; 
+    }
+
+    #timer{
+        font-size: 2rem; 
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="timer" id="timer">00d 00h 00m 00s</div>
+    <nav class="nav">
+        <a href="zdjecia.html">Zdjęcia</a>
+        <a href="nagrania.html">Nagrania</a>
+        <a href="toniejejwina.html">Dokumenty</a>
+    </nav>
+
+    <img src="jegoimie.JPG" alt="Nie ufajcie mu, on was oszuka." style="max-width: 90%; height: auto; margin-top: 40px;">
+    <p style="margin: 40px;">Jego imie to ▯▯▯▯▯</p>
+    <script>
+        const targetDate = new Date(2026, 9, 31, 16, 0, 0).getTime();
+
+        const timerElement = document.getElementById('timer');
+
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference < 0) {
+                timerElement.innerHTML = `<a>Jeszcze nie</a>`;
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        };
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+
+</body>
+</html>
