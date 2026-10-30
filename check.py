@@ -33,6 +33,7 @@ KNOWN_PAGES = {
     "gdziejestpotwor":      "/gdziejestpotwor.html",
     "gdziejestofiara":      "/gdziejestofiara.html",
     "znalazlesofiare":      "/znalazlesofiare.php",
+    "monstruminveni":       "/monstruminveni.html",
     "page_60":              "/60.html",
     "tojegowina":           "/tojegowina.html",
     "tuniemazadnychwojen":  "/tuniemazadnychwojen.html",
