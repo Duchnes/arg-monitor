@@ -31,6 +31,9 @@ KNOWN_PAGES = {
     "nagrania":             "/nagrania.html",
     "toniejejwina":         "/toniejejwina.html",
     "gdziejestpotwor":      "/gdziejestpotwor.html",
+    "gdziejestofiara":      "/gdziejestofiara.html",
+    "znalazlesofiare":      "/znalazlesofiare.php",
+    "page_60":              "/60.html",
     "tojegowina":           "/tojegowina.html",
     "tuniemazadnychwojen":  "/tuniemazadnychwojen.html",
 
@@ -60,6 +63,20 @@ KNOWN_PAGES = {
     "novum_dok1":    "/novumcapitulum/dok1.jpg",
     "novum_dok2":    "/novumcapitulum/dok2.jpg",
     "novum_dok3":    "/novumcapitulum/dok3.jpg",
+
+    # --- nowyswiat ---
+    "nowyswiat_pampam":              "/nowyswiat/pampam.html",
+    "nowyswiat_innanazwapoziomu3":   "/nowyswiat/innanazwapoziomu3.php",
+    "nowyswiat_poziom2":             "/nowyswiat/poziom2.html",
+    "nowyswiat_dontworrybehappy":    "/nowyswiat/dontworrybehappy.mp4",
+    "nowyswiat_poziom1":             "/nowyswiat/poziom1.html",
+    "nowyswiat_klawesyn":            "/nowyswiat/klawesyn.json",
+
+    # --- novusmundus ---
+    "novusmundus_level1":            "/novusmundus/level1.html",
+    "novusmundus_level7":            "/novusmundus/level7.html",
+    "novusmundus_krolszczurow":      "/novusmundus/krolszczurow.html",
+    "novusmundus_xyhpm_fmpmhe":      "/novusmundus/xyhpm_fmpmhe.jpg",
 
     # --- poprzednie (zostawione na wypadek powrotu) ---
     "logowanie":            "/logowanie.html",
