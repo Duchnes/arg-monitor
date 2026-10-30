@@ -1,0 +1,17 @@
+--- stary/toniejejwina
++++ nowy/toniejejwina
+@@ -48,10 +48,9 @@
+  <h1>Dokumenty</h1> 
+  
+- <img src="novumcapitulum/dok1.jpg" alt="haahaaaahaaaaahah" style="max-width: 60%; height: auto; margin-bottom: 20px;">
++ <p margin="40px">Już nic więcej tu nie będzie. Szukajcie mnie.</p>
+ 
+- <img src="novumcapitulum/dok2.jpg" alt="haahaaaahaaaaahah" style="max-width: 60%; height: auto; margin-bottom: 20px;">
+-
+- <img src="novumcapitulum/dok3.jpg" alt="haahaaaahaaaaahah" style="max-width: 60%; height: auto; margin-bottom: 20px;">
+-
++ <a href="/nowyswiat/poziom1.html">
++ <img src="nowyswiat/smile.jpg" style="max-width: 100px;">
++ </a>
+  </body>
+ </html>

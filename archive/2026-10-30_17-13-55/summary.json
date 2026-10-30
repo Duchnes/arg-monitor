@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-10-30T17:13:55Z",
+  "folder": "2026-10-30_17-13-55",
+  "changes": [
+    {
+      "key": "index",
+      "url": "https://haahaaaahaaaaahah.pl/index.html",
+      "path": "/index.html",
+      "old_hash": "c9fe79b5e1b54e3899406ba9ffb8e0cfc4b243b36b3276ac245ee79abfe611b4",
+      "new_hash": "20dac5c42b1d3aaf966a3a3d164ede44578b2310d853ebf47f4dbb4686c1394d",
+      "size": 2726,
+      "media_count": 1,
+      "media_files": [
+        "smile.jpg"
+      ]
+    },
+    {
+      "key": "main",
+      "url": "https://haahaaaahaaaaahah.pl/",
+      "path": "/",
+      "old_hash": "c9fe79b5e1b54e3899406ba9ffb8e0cfc4b243b36b3276ac245ee79abfe611b4",
+      "new_hash": "20dac5c42b1d3aaf966a3a3d164ede44578b2310d853ebf47f4dbb4686c1394d",
+      "size": 2726,
+      "media_count": 1,
+      "media_files": [
+        "smile.jpg"
+      ]
+    },
+    {
+      "key": "nagrania",
+      "url": "https://haahaaaahaaaaahah.pl/nagrania.html",
+      "path": "/nagrania.html",
+      "old_hash": "b640085bac844be9f22b9e5f07eb70b1b43106c22d42842e8eb896d916f6f4f8",
+      "new_hash": "9834ace8d21b9756adaf6c8b365e3e99714173902a728da7ab1725cd0353e6f7",
+      "size": 1265,
+      "media_count": 1,
+      "media_files": [
+        "smile.jpg"
+      ]
+    },
+    {
+      "key": "toniejejwina",
+      "url": "https://haahaaaahaaaaahah.pl/toniejejwina.html",
+      "path": "/toniejejwina.html",
+      "old_hash": "b8ee119ce137722611d0741528895e7570688d57b564128e5f67b25ba0d68069",
+      "new_hash": "61ed50b7fe6acbb682e06ce5d582532273b8752e09aa4f5e6ead26dcbe810359",
+      "size": 1338,
+      "media_count": 1,
+      "media_files": [
+        "smile.jpg"
+      ]
+    },
+    {
+      "key": "zdjecia",
+      "url": "https://haahaaaahaaaaahah.pl/zdjecia.html",
+      "path": "/zdjecia.html",
+      "old_hash": "caf2f01452ebd150dbfe7ae6aa1b1cb14b4f998a3337e7c020b6437c223b8534",
+      "new_hash": "59099cde2067a57939a814747581ccd62b146d7946a1f3b7d8548b022fce8147",
+      "size": 1271,
+      "media_count": 1,
+      "media_files": [
+        "smile.jpg"
+      ]
+    }
+  ]
+}

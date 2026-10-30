@@ -1,0 +1,24 @@
+--- stary/zdjecia
++++ nowy/zdjecia
+@@ -46,16 +46,11 @@
+  </nav>
+ 
+- <h1>Coś się zmienia</h1> 
++ <h1>Zdjęcia</h1> 
+ 
+- <img src="novumcapitulum/1.jpg" alt="Zdjęcie ofiary znalezione w prywatnym archiwum podejrzanego." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="novumcapitulum/2.jpg" alt="Ofiara została porwana mając zaledwie ▯▯ lat." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="novumcapitulum/3.jpg" alt="PjnrooesazahpaiimC s k.oeraypadpdbi oid aednc ownm faai ayca osuaydz wonpab yzryor.łzgzm" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="novumcapitulum/4.jpg" alt="Podejrzany prawdopodobnie odtwarzał zdjęcia które znaleźliśmy w ▯▯▯▯▯▯" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="novumcapitulum/5.jpg" alt="01010000 01101111 01100100 01111010 01101001 01100101 01101101 01101001 01100001 00100000 01110111 01101001 01100101 11000101 10111100 01111001 00100000 01100011 01101001 11000101 10011011 01101110 01101001 01100101 11000101 10000100 00101110" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="novumcapitulum/6.jpg" alt="fśóilnścyśóy.sdxv" style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="novumcapitulum/7.jpg" alt="Budynek był sprawdzany przez nas pare razy, ale nic prócz kartki nie znaleźliśmy." style="max-width: 90%; height: auto; margin-bottom: 20px;">
+- <img src="novumcapitulum/8.jpg" alt="Ucieczka" style="max-width: 90%; height: auto; margin-bottom: 20px;">
++ <p margin="40px">Już nic więcej tu nie będzie. Szukajcie mnie.</p>
+ 
+- <!--Komunikat był puszczony. Kartka nie została zabrana. Teraz trochę czasu wam zajmie rozwiązanie zagadek.-->
++ <a href="/nowyswiat/poziom1.html">
++ <img src="nowyswiat/smile.jpg" style="max-width: 100px;">
++ </a>
+ </body>
+ </html>

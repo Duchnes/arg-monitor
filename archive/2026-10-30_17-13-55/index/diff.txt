@@ -1,0 +1,21 @@
+--- stary/index
++++ nowy/index
+@@ -22,5 +22,4 @@
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+- margin-top: 30px;
+  }
+ 
+@@ -63,6 +62,10 @@
+  </nav>
+ 
+- <img src="jegoimie.JPG" alt="Nie ufajcie mu, on was oszuka." style="max-width: 90%; height: auto; margin-top: 40px;">
+- <p style="margin: 40px;">Jego imie to ▯▯▯▯▯</p>
++ <p style="margin: 40px; font-size: 3rem;">Nie szukajcie ofiary.</p>
++ <hr>
++ <p>Każdy, kto znajdzie moje zdjęcie, dostanie nagrodę.</p>
++ <a href="/nowyswiat/poziom1.html">
++ <img src="nowyswiat/smile.jpg" style="max-width: 100px;">
++ </a>
+  <script>
+  const targetDate = new Date(2026, 9, 31, 16, 0, 0).getTime();

@@ -1,0 +1,18 @@
+--- stary/nagrania
++++ nowy/nagrania
+@@ -48,11 +48,9 @@
+  <h1>Nagrania</h1>
+ 
+- <video controls width="80%" style="margin-bottom: 20px;">
+- <source src="novumcapitulum/Video1.mp4" type="video/mp4" style="margin-bottom: 20px;">
+- </video>
++ <p margin="40px">Już nic więcej tu nie będzie. Szukajcie mnie.</p>
+ 
+- <video controls width="80%">
+- <source src="novumcapitulum/Video2.mp4" type="video/mp4" style="margin-bottom: 20px;">
+- </video>
++ <a href="/nowyswiat/poziom1.html">
++ <img src="nowyswiat/smile.jpg" style="max-width: 100px;">
++ </a>
+ 
+ </body>
